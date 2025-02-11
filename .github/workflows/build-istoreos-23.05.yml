@@ -173,7 +173,7 @@ jobs:
         tar -czvf packages.tar.gz packages
         tar -czvf base.tar.gz ../../../packages/*/*
         rm -rf *.bin
-        rm -rf *.buildinfo 
+        #rm -rf *.buildinfo 
         rm -rf *.json 
         rm -rf *.manifest 
         rm -rf packages
