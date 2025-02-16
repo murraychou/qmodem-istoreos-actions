@@ -281,10 +281,10 @@ cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-sms-tool/* 
 # svn export https://github.com/owner888/luci-app-3ginfo-zh_cn/trunk/luci-app-3ginfo
 
 # 5G模组信息插件+AT工具
-mkdir luci-app-modem
-cp -rf ../../Modem-Support/luci-app-modem/* luci-app-modem
-rm -rf ../../Modem-Support/luci-app-modem/po/zh_Hans #解决汉化问题
-popd
+#mkdir luci-app-modem
+#cp -rf ../../Modem-Support/luci-app-modem/* luci-app-modem
+#rm -rf ../../Modem-Support/luci-app-modem/po/zh_Hans #解决汉化问题
+#popd
 
 # 5G模组拨号脚本
 # mkdir -p package/base-files/files/root/5GModem
