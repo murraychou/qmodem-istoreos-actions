@@ -192,7 +192,7 @@ jobs:
       id: tag
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-output name=release_tag::${{ matrix.ARCHITECTURE }}-22.03-$("%Y年%m月%d日%H时%M分")"
+        echo "::set-output name=release_tag::${{ matrix.ARCHITECTURE }}_22.03_$(date +"%Y-%m-%d")"
         touch release.txt
         echo "
         💻 架构: ${{ matrix.ARCHITECTURE }}
