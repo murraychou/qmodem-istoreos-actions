@@ -170,6 +170,13 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
+        tar -czvf packages.tar.gz packages
+        tar -czvf base.tar.gz ../../../packages/*/*
+        rm -rf *.bin
+        #rm -rf *.buildinfo 
+        rm -rf *.json 
+        #rm -rf *.manifest 
+        rm -rf packages
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
@@ -185,7 +192,7 @@ jobs:
       id: tag
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-output name=release_tag::${{ matrix.ARCHITECTURE }}"
+        echo "::set-output name=release_tag::${{ matrix.ARCHITECTURE }}-22.03-$("%Y年%m月%d日%H时%M分")"
         touch release.txt
         echo "
         💻 架构: ${{ matrix.ARCHITECTURE }}
