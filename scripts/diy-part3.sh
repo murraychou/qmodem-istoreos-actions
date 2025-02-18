@@ -305,6 +305,10 @@ CONFIG_PACKAGE_luci-app-ramfree=y
 # CONFIG_PACKAGE_luci-app-usb3disable=y
 CONFIG_PACKAGE_luci-app-luci-app-netdata=y
 CONFIG_PACKAGE_luci-app-luci-app-rtbwmon=y
+CONFIG_DEFAULT_luci-app-nlbwmon=y
+CONFIG_PACKAGE_nlbwmon=y
+CONFIG_PACKAGE_luci-app-nlbwmon=y
+CONFIG_PACKAGE_luci-i18n-nlbwmon-zh-cn=y
 
 # 存储相关应用
 # CONFIG_PACKAGE_luci-app-gowebdav=y
@@ -452,7 +456,7 @@ echo "
 # CONFIG_PACKAGE_ext-rooter-basic=y
 
 # 5G模组短信插件
-CONFIG_PACKAGE_luci-app-sms-tool=y
+#CONFIG_PACKAGE_luci-app-sms-tool=y
 
 # 5G模组信息插件
 # CONFIG_PACKAGE_luci-app-3ginfo-lite=y
@@ -462,7 +466,7 @@ CONFIG_PACKAGE_luci-app-sms-tool=y
 # CONFIG_PACKAGE_luci-app-cpe=y
 # CONFIG_PACKAGE_sendat=y
 CONFIG_PACKAGE_sms-tool=y
-CONFIG_PACKAGE_luci-app-modem=y
+#CONFIG_PACKAGE_luci-app-modem=y
 
 # QMI拨号工具（移远，广和通）
 # CONFIG_PACKAGE_quectel-CM-5G=y
