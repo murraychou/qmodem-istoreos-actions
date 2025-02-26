@@ -175,9 +175,6 @@ cp -rf ../../kiddin9/luci-app-rtbwmon/* luci-app-rtbwmon
 # svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
 # svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
 #OpenClash
-# svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
-# svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/istoreos/general/applications/luci-app-openclash temp/luci-app-openclash
-# cp -rf temp/luci-app-openclash/* luci-app-openclash
 mkdir luci-app-openclash
 cp -rf ../../kiddin9/luci-app-openclash/* luci-app-openclash
 cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-openclash/* luci-app-openclash
@@ -193,8 +190,6 @@ fi
 
 # 去广告
 #ADGuardHome（kiddin9）
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/adguardhome
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome
 mkdir luci-app-adguardhome
 cp -rf ../../kiddin9/luci-app-adguardhome/* luci-app-adguardhome
 cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-adguardhome/* luci-app-adguardhome
@@ -241,8 +236,6 @@ sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为
 #Socat（iStoreOS已有）
 #svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-socat
 #Unblockneteasemusic
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/UnblockNeteaseMusic
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-unblockneteasemusic
 mkdir UnblockNeteaseMusic
 mkdir luci-app-unblockneteasemusic
 cp -rf ../../kiddin9/UnblockNeteaseMusic/* UnblockNeteaseMusic
@@ -251,10 +244,6 @@ cp -rf ../../kiddin9/luci-app-unblockneteasemusic/* luci-app-unblockneteasemusic
 # svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
 # 5G通信模组拨号工具
-# svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_QMI_WWAN
-# svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_cm_5G
-# svn export https://github.com/xiaoxifu64/immortalwrt/trunk/package/quectel_MHI
-# svn export https://github.com/Siriling/5G-Modem-Support/trunk/luci-app-hypermodem
 mkdir quectel_QMI_WWAN
 mkdir quectel_cm_5G
 mkdir quectel_MHI
@@ -265,9 +254,6 @@ cp -rf ../../Modem-Support/quectel_MHI/* quectel_MHI
 cp -rf ../../Modem-Support/luci-app-hypermodem/* luci-app-hypermodem
 
 # 5G模组短信插件
-# svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool
-# svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool
-# svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/istoreos/general/applications/luci-app-sms-tool temp/luci-app-sms-tool
 # cp -rf temp/luci-app-sms-tool/* luci-app-sms-tool
 mkdir sms-tool
 mkdir luci-app-sms-tool
