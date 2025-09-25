@@ -1,4 +1,4 @@
-name: Build iStore OS 22.03-qmodem
+name: Build iStore OS 24.10-qmodem
 
 on:
   repository_dispatch:
