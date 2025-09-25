@@ -26,13 +26,13 @@ sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_genera
 sed -i 's/disabled=1/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # 移除ddns
-# sed -i 's/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/' .config
-# sed -i 's/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/' .config
-# sed -i 's/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/' .config
-# sed -i 's/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/' .config
-# sed -i 's/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/' .config
-# sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
-# sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/' .config
 # 移除ddnsto
 sed -i 's/CONFIG_PACKAGE_ddnsto=y/CONFIG_PACKAGE_ddnsto=n/' .config
 sed -i 's/CONFIG_PACKAGE_luci-app-ddnsto=y/CONFIG_PACKAGE_luci-app-ddnsto=n/' .config
@@ -112,33 +112,33 @@ pushd package/community
 #svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-fileassistant
 #Guest-wifi
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-guest-wifi
-mkdir luci-app-guest-wifi
-cp -rf ../../kiddin9/luci-app-guest-wifi/* luci-app-guest-wifi
+# mkdir luci-app-guest-wifi
+# cp -rf ../../kiddin9/luci-app-guest-wifi/* luci-app-guest-wifi
 #Onliner
-mkdir luci-app-onliner
-cp -rf ../../kiddin9/luci-app-onliner/* luci-app-onliner
+# mkdir luci-app-onliner
+# cp -rf ../../kiddin9/luci-app-onliner/* luci-app-onliner
 #Eqos（iStoreOS已有）
 #svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-eqos
 #Wolplus（已有Wol）
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-wolplus
 #WiFischedule
-mkdir luci-app-wifischedule
-cp -rf ../../kiddin9/luci-app-wifischedule/* luci-app-wifischedule
+# mkdir luci-app-wifischedule
+# cp -rf ../../kiddin9/luci-app-wifischedule/* luci-app-wifischedule
 #RAMfree
-mkdir luci-app-ramfree
-cp -rf ../../kiddin9/luci-app-ramfree/* luci-app-ramfree
+# mkdir luci-app-ramfree
+# cp -rf ../../kiddin9/luci-app-ramfree/* luci-app-ramfree
 #ttyd（conf已有）
 # mkdir luci-app-ttyd
 # cp -rf ../kiddin9/luci-app-ttyd/* luci-app-ttyd
 #usb3disable（禁用USB3.0接口）
-mkdir luci-app-usb3disable
-cp -rf ../../kiddin9/luci-app-usb3disable/* luci-app-usb3disable
+# mkdir luci-app-usb3disable
+# cp -rf ../../kiddin9/luci-app-usb3disable/* luci-app-usb3disable
 #NetData（系统监控）
-mkdir luci-app-netdata
-cp -rf ../../kiddin9/luci-app-netdata/* luci-app-netdata
+# mkdir luci-app-netdata
+# cp -rf ../../kiddin9/luci-app-netdata/* luci-app-netdata
 #rtbwmon（实施流量）
-mkdir luci-app-rtbwmon
-cp -rf ../../kiddin9/luci-app-rtbwmon/* luci-app-rtbwmon
+# mkdir luci-app-rtbwmon
+# cp -rf ../../kiddin9/luci-app-rtbwmon/* luci-app-rtbwmon
 
 # 存储相关应用
 # Gowebdav（iStoreOS已有）
@@ -178,28 +178,28 @@ cp -rf ../../kiddin9/luci-app-rtbwmon/* luci-app-rtbwmon
 # svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 # svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/istoreos/general/applications/luci-app-openclash temp/luci-app-openclash
 # cp -rf temp/luci-app-openclash/* luci-app-openclash
-mkdir luci-app-openclash
-cp -rf ../../kiddin9/luci-app-openclash/* luci-app-openclash
-cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-openclash/* luci-app-openclash
+# mkdir luci-app-openclash
+# cp -rf ../../kiddin9/luci-app-openclash/* luci-app-openclash
+#cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-openclash/* luci-app-openclash
 #加入OpenClash核心
-chmod -R a+x $GITHUB_WORKSPACE/scripts/preset-clash-core.sh
-if [ "$1" = "rk33xx" ]; then
-    $GITHUB_WORKSPACE/scripts/preset-clash-core.sh arm64
-elif [ "$1" = "rk35xx" ]; then
-    $GITHUB_WORKSPACE/scripts/preset-clash-core.sh arm64
-elif [ "$1" = "x86" ]; then
-    $GITHUB_WORKSPACE/scripts/preset-clash-core.sh amd64
-fi
+# chmod -R a+x $GITHUB_WORKSPACE/scripts/preset-clash-core.sh
+# if [ "$1" = "rk33xx" ]; then
+#     $GITHUB_WORKSPACE/scripts/preset-clash-core.sh arm64
+# elif [ "$1" = "rk35xx" ]; then
+#     $GITHUB_WORKSPACE/scripts/preset-clash-core.sh arm64
+# elif [ "$1" = "x86" ]; then
+#     $GITHUB_WORKSPACE/scripts/preset-clash-core.sh amd64
+# fi
 
 # 去广告
 #ADGuardHome（kiddin9）
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/adguardhome
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome
-mkdir luci-app-adguardhome
-cp -rf ../../kiddin9/luci-app-adguardhome/* luci-app-adguardhome
-cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-adguardhome/* luci-app-adguardhome
-sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为root）/' luci-app-adguardhome/po/zh_Hans/adguardhome.po
-#sed -i 's/+PACKAGE_$(PKG_NAME)_INCLUDE_binary:adguardhome//' luci-app-adguardhome/Makefile
+# mkdir luci-app-adguardhome
+# cp -rf ../../kiddin9/luci-app-adguardhome/* luci-app-adguardhome
+# cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-adguardhome/* luci-app-adguardhome
+# sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为root）/' luci-app-adguardhome/po/zh_Hans/adguardhome.po
+# sed -i 's/+PACKAGE_$(PKG_NAME)_INCLUDE_binary:adguardhome//' luci-app-adguardhome/Makefile
 #ADGuardHome（kenzok8）
 # svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
 # svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
@@ -243,10 +243,10 @@ sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为
 #Unblockneteasemusic
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/UnblockNeteaseMusic
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-unblockneteasemusic
-mkdir UnblockNeteaseMusic
-mkdir luci-app-unblockneteasemusic
-cp -rf ../../kiddin9/UnblockNeteaseMusic/* UnblockNeteaseMusic
-cp -rf ../../kiddin9/luci-app-unblockneteasemusic/* luci-app-unblockneteasemusic
+# mkdir UnblockNeteaseMusic
+# mkdir luci-app-unblockneteasemusic
+# cp -rf ../../kiddin9/UnblockNeteaseMusic/* UnblockNeteaseMusic
+# cp -rf ../../kiddin9/luci-app-unblockneteasemusic/* luci-app-unblockneteasemusic
 #OpenAppFilter（conf已有）
 # svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
@@ -294,28 +294,26 @@ cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-sms-tool/* 
 # 添加第三方应用
 echo "
 # 系统相关应用
-CONFIG_PACKAGE_luci-app-poweroff=y
-CONFIG_PACKAGE_luci-app-fileassistant=y
-CONFIG_PACKAGE_luci-app-guest-wifi=y
-CONFIG_PACKAGE_luci-app-onliner=y
-CONFIG_PACKAGE_luci-app-eqos=y
+# CONFIG_PACKAGE_luci-app-poweroff=y
+# CONFIG_PACKAGE_luci-app-onliner=y
+# CONFIG_PACKAGE_luci-app-eqos=y
 # CONFIG_PACKAGE_luci-app-wolplus=y
-CONFIG_PACKAGE_luci-app-wifischedule=y
-CONFIG_PACKAGE_luci-app-ramfree=y
+# CONFIG_PACKAGE_luci-app-wifischedule=y
+# CONFIG_PACKAGE_luci-app-ramfree=y
 # CONFIG_PACKAGE_luci-app-usb3disable=y
-CONFIG_PACKAGE_luci-app-luci-app-netdata=y
-CONFIG_PACKAGE_luci-app-luci-app-rtbwmon=y
-CONFIG_DEFAULT_luci-app-nlbwmon=y
-CONFIG_PACKAGE_nlbwmon=y
-CONFIG_PACKAGE_luci-app-nlbwmon=y
-CONFIG_PACKAGE_luci-i18n-nlbwmon-zh-cn=y
+# CONFIG_PACKAGE_luci-app-luci-app-netdata=y
+# CONFIG_PACKAGE_luci-app-luci-app-rtbwmon=y
+# CONFIG_DEFAULT_luci-app-nlbwmon=y
+# CONFIG_PACKAGE_nlbwmon=y
+# CONFIG_PACKAGE_luci-app-nlbwmon=y
+# CONFIG_PACKAGE_luci-i18n-nlbwmon-zh-cn=y
 
 # 存储相关应用
 # CONFIG_PACKAGE_luci-app-gowebdav=y
 
 # 科学上网和代理应用
 #SSR
-CONFIG_PACKAGE_luci-app-ssr-plus=y
+# CONFIG_PACKAGE_luci-app-ssr-plus=y
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_NONE_Client=y
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Client is not set
@@ -376,10 +374,10 @@ CONFIG_PACKAGE_luci-app-ssr-plus=y
 # CONFIG_PACKAGE_luci-app-vssr_INCLUDE_ShadowsocksR_Server=y
 
 #Openclash
-CONFIG_PACKAGE_luci-app-openclash=y
+# CONFIG_PACKAGE_luci-app-openclash=y
 
 # 去广告应用
-CONFIG_PACKAGE_luci-app-adguardhome=y
+# CONFIG_PACKAGE_luci-app-adguardhome=y
 # CONFIG_PACKAGE_luci-app-dnsfilter=y
 # CONFIG_PACKAGE_luci-app-ikoolproxy=y
 
@@ -429,8 +427,8 @@ CONFIG_PACKAGE_luci-app-adguardhome=y
 
 # 其他
 # CONFIG_PACKAGE_luci-app-pushbot=y
-CONFIG_PACKAGE_luci-app-socat=y
-CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
+# CONFIG_PACKAGE_luci-app-socat=y
+# CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
 # CONFIG_PACKAGE_luci-app-uugamebooster=y
 # CONFIG_PACKAGE_luci-app-wifischedule=y
 # CONFIG_PACKAGE_luci-app-xlnetacc=y
